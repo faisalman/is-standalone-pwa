@@ -1,7 +1,7 @@
 {
     "title": "isStandalonePWA",
     "name": "is-standalone-pwa",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": "Faisal Salman <f@faisalman.com>",
     "description": "Detect if PWA is running in standalone mode",
     "type": "commonjs",
@@ -24,7 +24,7 @@
     "scripts": {
         "build": "npm run build:cjs && npm run build:esm",
         "build:cjs": "tsc --module commonjs --outDir ./dist/cjs --target es2019",
-        "build:esm": "tsc --module esnext --moduleResolution bundler --outDir ./dist/esm --target es2019",
+        "build:esm": "tsc --module esnext --moduleResolution bundler --outDir ./dist/esm --target es2019 && echo '{\"type\":\"module\"}' > ./dist/esm/package.json",
         "test": "mocha ./test"
     },
     "repository": {
