@@ -7,21 +7,21 @@
 ///////////////////////////////////////////////////
 
 export function isStandalonePWA(): boolean {    
-    return window &&
+    return typeof window !== 'undefined' &&
 
             // matchMedia()
-            (window.matchMedia('(display-mode: standalone)').matches ||
+            (window?.matchMedia('(display-mode: standalone)').matches ||
 
             // iOS
             // @ts-ignore
-            navigator.standalone ||
+            window.navigator?.standalone ||
 
             // Android
             document.referrer.startsWith('android-app://') ||
 
             // Windows
             // @ts-ignore
-            window.Windows ||
+            window?.Windows ||
             /trident.+(msapphost|webview)\//i.test(navigator.userAgent) ||
             document.referrer.startsWith('app-info://platform/microsoft-store'));
 };

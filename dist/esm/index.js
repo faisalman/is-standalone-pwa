@@ -4,11 +4,12 @@
     Author: Faisal Salman <f@faisalman.com>
     MIT License */
 export function isStandalonePWA() {
-    return window &&
-        (window.matchMedia('(display-mode: standalone)').matches ||
-            navigator.standalone ||
+    var _a;
+    return typeof window !== 'undefined' &&
+        ((window === null || window === void 0 ? void 0 : window.matchMedia('(display-mode: standalone)').matches) ||
+            ((_a = window.navigator) === null || _a === void 0 ? void 0 : _a.standalone) ||
             document.referrer.startsWith('android-app://') ||
-            window.Windows ||
+            (window === null || window === void 0 ? void 0 : window.Windows) ||
             /trident.+(msapphost|webview)\//i.test(navigator.userAgent) ||
             document.referrer.startsWith('app-info://platform/microsoft-store'));
 }

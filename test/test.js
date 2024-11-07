@@ -12,7 +12,7 @@ describe('isStandalonePWA()', () => {
         });
         
         it('Returns `false` otherwise', () => {
-            globalThis.window = false;
+            globalThis.window = undefined;
             assert.equal(isStandalonePWA(), false);
         });
     });
